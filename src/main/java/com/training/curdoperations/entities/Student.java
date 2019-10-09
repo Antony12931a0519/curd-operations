@@ -9,6 +9,16 @@ public class Student {
 	@Id
 	private int id;
 	private String name;
+	private String initial;
+
+	public String getInitial() {
+		return initial;
+	}
+
+	public void setInitial(String initial) {
+		this.initial = initial;
+	}
+
 	private float marks;
 
 	public int getId() {
