@@ -26,7 +26,7 @@ public class StudentService {
 			for (com.training.curdoperations.entities.Student student : studentList) {
 				Student s = new Student();
 				s.setName(student.getInitial() + "" + student.getName());
-				s.setMarks(student.getMarks());
+				s.setMarks((float) student.getMarks());
 				students.add(s);
 			}
 
@@ -50,7 +50,7 @@ public class StudentService {
 			for (com.training.curdoperations.entities.Student student : studentList) {
 				Student s = new Student();
 				s.setName(student.getInitial() + "" + student.getName());
-				s.setMarks(student.getMarks());
+				s.setMarks((float) student.getMarks());
 				students.add(s);
 			}
 

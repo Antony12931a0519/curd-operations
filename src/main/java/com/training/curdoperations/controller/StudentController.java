@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.training.curdoperations.custom.exceptions.NullCheckException;
+import com.training.curdoperations.dao.CustomStudentDAO;
+import com.training.curdoperations.dao.StudentDAO;
 import com.training.curdoperations.models.Student;
 import com.training.curdoperations.service.StudentService;
 
@@ -20,16 +22,30 @@ public class StudentController implements BasicCrudOperations {
 	@Autowired
 	StudentService studentService;
 
+	@Autowired
+	StudentDAO studentDAO;
+
+	@Autowired
+	CustomStudentDAO customStudentDAO;
+
 	@RequestMapping(value = "/students/list", produces = "application/json", method = { RequestMethod.GET })
 	public List<Student> getStudentList() {
+		System.out.println(studentDAO.createCustomQuery());
+		System.out.println(studentDAO.createCustomQueryNyname("Antony"));
+		System.out.println(studentDAO.createCustomQueryForStudent("Antony"));
+		System.out.println(studentDAO
+				.createCustomQueryForStudentNativeQuery("Antony"));
+
+		for (Object s : customStudentDAO
+				.findSudentDetails()) {
+			System.out.println(s);
+		}
 
 		return studentService.getStudentList();
 
 	}
-	
-	@RequestMapping(value = "/studentslistbymarks/{marks}",
-			produces = "application/json",
-			method = { RequestMethod.GET })
+
+	@RequestMapping(value = "/studentslistbymarks/{marks}", produces = "application/json", method = { RequestMethod.GET })
 	public List<Student> findStudentsByMarks(@PathVariable("marks") float marks) {
 
 		return studentService.findStudentsByMarks(marks);
