@@ -1,5 +1,6 @@
 package com.training.curdoperations.entities;
 
+import javax.persistence.Column;
 import javax.persistence.ColumnResult;
 import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;

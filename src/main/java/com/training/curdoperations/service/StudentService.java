@@ -7,7 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.training.curdoperations.custom.exceptions.NullCheckException;
+import com.training.curdoperations.custom.exceptions.ProjectException;
 import com.training.curdoperations.dao.StudentDAO;
 import com.training.curdoperations.models.Student;
 
@@ -66,10 +66,10 @@ public class StudentService {
 
 
 	public String insertStudentDetails(Student student)
-			throws NullCheckException {
+			throws ProjectException {
 
 		if (student == null) {
-			throw new NullCheckException("Student details cannot be null.");
+			throw new ProjectException("Student details cannot be null.");
 		}
 
 		com.training.curdoperations.entities.Student studentEntity = new com.training.curdoperations.entities.Student();
@@ -86,10 +86,10 @@ public class StudentService {
 	}
 
 	public String updateStudentDetails(Student student)
-			throws NullCheckException {
+			throws ProjectException {
 
 		if (student == null) {
-			throw new NullCheckException("Student details cannot be null.");
+			throw new ProjectException("Student details cannot be null.");
 		}
 
 		Optional<com.training.curdoperations.entities.Student> studentOptionalntity = null;
@@ -113,10 +113,10 @@ public class StudentService {
 	}
 
 	public String deleteStudentDetails(Student student)
-			throws NullCheckException {
+			throws ProjectException {
 
 		if (student == null) {
-			throw new NullCheckException("Student details cannot be null.");
+			throw new ProjectException("Student details cannot be null.");
 		}
 
 		Optional<com.training.curdoperations.entities.Student> studentOptionalntity = null;
@@ -138,10 +138,10 @@ public class StudentService {
 
 	}
 
-	public String deleteStudentDetailsById(int id) throws NullCheckException {
+	public String deleteStudentDetailsById(int id) throws ProjectException {
 
 		if (id == 0) {
-			throw new NullCheckException("Student details cannot be null.");
+			throw new ProjectException("Student details cannot be null.");
 		}
 
 		Optional<com.training.curdoperations.entities.Student> studentOptionalntity = null;
